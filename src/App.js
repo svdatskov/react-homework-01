@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
+import PersonData from "./PersonData";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [hiding, setHiding] = useState(false);
+
+    const hidingHandler = () => {
+        setHiding(!hiding)
+    }
+
+    return (
+        <React.Fragment>
+            <PersonData hiding={hiding} />
+            <button onClick={hidingHandler}>{ hiding ? 'Hide' : 'Show' }</button>
+        </React.Fragment>
+    );
 }
 
 export default App;
